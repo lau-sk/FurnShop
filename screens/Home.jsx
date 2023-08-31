@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-const Search = () => {
+const Home = () => {
     return (
         <View>
-            <Text>Search</Text>
+            <Text>Home</Text>
         </View>
     )
 }
@@ -13,4 +13,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default Search;
+export default Home;

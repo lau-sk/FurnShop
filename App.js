@@ -2,7 +2,10 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from "expo-status-bar";
 import { useCallback } from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import BottomTabNavigation from "./navigation/BottomTabNavigation";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,12 +27,15 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.textStyles}>
-        Start Working!
-      </Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name='Bottom Navigation'
+          component={BottomTabNavigation}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 

@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-const Search = () => {
+const Profile = () => {
     return (
         <View>
-            <Text>Search</Text>
+            <Text>Profile</Text>
         </View>
     )
 }
@@ -13,4 +13,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default Search;
+export default Profile;
