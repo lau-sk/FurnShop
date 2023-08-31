@@ -1,11 +1,10 @@
 import { useFonts } from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from "expo-status-bar";
 import { useCallback } from "react";
-import { StyleSheet, View, Text } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import BottomTabNavigation from "./navigation/BottomTabNavigation";
+import { Cart } from "./screens";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,6 +25,8 @@ export default function App() {
     return null;
   }
 
+  const Stack = createNativeStackNavigator();
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -34,20 +35,12 @@ export default function App() {
           component={BottomTabNavigation}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name='Cart'
+          component={Cart}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  textStyles: {
-    fontFamily: 'extrabold',
-    fontSize: 20,
-  },
-})
+};
