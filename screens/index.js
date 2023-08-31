@@ -2,7 +2,7 @@ import Home from './Home'
 import Search from './Search'
 import Profile from './Profile'
 import Cart from './Cart'
-import ProductDescription from './ProductDescription'
+import ProductDetails from './ProductDetails'
 
 
 export {
@@ -10,5 +10,5 @@ export {
     Search,
     Profile,
     Cart,
-    ProductDescription
+    ProductDetails
 }
