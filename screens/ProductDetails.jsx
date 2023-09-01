@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Text, View, TouchableOpacity, Image } from "react-native";
+import { useRoute } from "@react-navigation/native";
 import styles from "./productDetails.style";
 import { Ionicons, SimpleLineIcons, MaterialCommunityIcons, Fontisto } from '@expo/vector-icons';
 import { colors, sizes } from "../constants";
 
 const ProductDetails = ({ navigation }) => {
+    const route = useRoute();
+    const { item } = route.params;
     const [count, setCount] = useState(1);
 
     const increment = () => {
@@ -33,16 +36,16 @@ const ProductDetails = ({ navigation }) => {
 
             <Image
                 source={{
-                    uri: 'https://www.starfurniture.com/dw/image/v2/BCLR_PRD/on/demandware.static/-/Sites-STAR-Library/default/dw8611a653/images/stores/Store-7-Living-Room-Furniture.jpg'
+                    uri: item.imageUrl
                 }}
                 style={styles.image}
             />
 
             <View style={styles.details}>
                 <View style={styles.titleRow}>
-                    <Text style={styles.title}>Product</Text>
+                    <Text style={styles.title}>{item.title}</Text>
                     <View style={styles.priceWrapper}>
-                        <Text style={styles.price}>$5000</Text>
+                        <Text style={styles.price}>{item.price}</Text>
                     </View>
                 </View>
 
@@ -81,7 +84,7 @@ const ProductDetails = ({ navigation }) => {
                 <View style={styles.descriptionWrapper}>
                     <Text style={styles.description}>Description</Text>
                     <Text style={styles.descriptionText}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                        {item.description}
                     </Text>
                 </View>
 
@@ -89,7 +92,7 @@ const ProductDetails = ({ navigation }) => {
                     <View style={styles.location}>
                         <View style={{ flexDirection: 'row' }}>
                             <Ionicons name='location-outline' size={20} marginHorizontal={5} />
-                            <Text>St.Catherine</Text>
+                            <Text>{item.product_location}</Text>
                         </View>
 
                         <View style={{ flexDirection: 'row' }}>

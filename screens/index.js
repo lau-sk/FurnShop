@@ -3,6 +3,7 @@ import Search from './Search'
 import Profile from './Profile'
 import Cart from './Cart'
 import ProductDetails from './ProductDetails'
+import NewArrivals from './NewArrivals'
 
 
 export {
@@ -10,5 +11,6 @@ export {
     Search,
     Profile,
     Cart,
-    ProductDetails
+    ProductDetails,
+    NewArrivals,
 }
